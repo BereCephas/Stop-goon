@@ -5,6 +5,7 @@ Bloque automatiquement les sites indésirables grâce à une base de données JS
 ## Aperçu 📸
 
 ![Aperçu de l'extension](demo/Stop-goon.PNG)
+
 ## Description
 
 Stop-Goon est une extension Chrome légère qui bloque automatiquement l’accès à une liste de sites pornographiques référencés dans un fichier JSON. Elle remplace la page bloquée par un message motivant, court et simple, pour aider l’utilisateur à garder le contrôle de ses envies.
