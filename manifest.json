@@ -1,0 +1,35 @@
+{
+  "name": "Stop-goon",
+  "description": "Extension pour bloquer les sites pour adultes automatiquement.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["script.js"]
+
+    }
+  ],
+  "web_accessible_resources": [
+           {
+             "resources": ["urls.json"],
+             "matches": ["*://*/*"]
+           },
+                      {
+             "resources": ["message/*"],
+             "matches": ["*://*/*"]
+           }
+         ],
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_title": "Stop-goon actif",
+    "default_popup":"popup.html"
+  }
+}
