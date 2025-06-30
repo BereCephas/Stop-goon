@@ -12,7 +12,28 @@ function get_urls() {
       console.error('Error fetching data:', error);
     });
 }
+// block the request 
 
+
+// get the url where the user is trying to visit
+const current_url = window.location.href;
+
+// fonction which verify if the url is in our BD
+function check_current_url() {
+   let matched = false;
+
+  urls.forEach(element => {
+    const urlObject = new URL(current_url);
+
+    const domainMatch = urlObject.hostname.includes(element.domain);
+    const pathMatch = element.path ? urlObject.pathname.includes(element.path) : true;
+
+    if (domainMatch) {
+      replace_page_content()
+      matched = true;
+    }
+  });
+}
 // replace the current page content with a message 
     function replace_page_content() {
       // html
@@ -36,25 +57,8 @@ link.href = chrome.runtime.getURL("message/message.css"); // chemin vers ton CSS
 document.head.appendChild(link);
 }
 
-// get the url where the user is trying to visit
-const current_url = window.location.href;
 
-// fonction qui vérifie si l'url actuelle correspond à une des urls interdites
-function check_current_url() {
-   let matched = false;
 
-  urls.forEach(element => {
-    const urlObject = new URL(current_url);
 
-    const domainMatch = urlObject.hostname.includes(element.domain);
-    const pathMatch = element.path ? urlObject.pathname.includes(element.path) : true;
-
-    if (domainMatch) {
-      replace_page_content()
-      matched = true;
-    }
-  });
-}
-
-// on lance tout
-get_urls();
+// launch all
+// get_urls();

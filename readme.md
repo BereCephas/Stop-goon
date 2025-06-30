@@ -46,3 +46,16 @@ Stop-Goon est une extension Chrome légère qui bloque automatiquement l’accè
 
 ## Structure du projet
 
+/Stop-Goon
+│
+├── icons/
+│ ├── icon16.png
+│ ├── icon48.png
+│ └── icon128.png
+│
+├── urls.json # Liste des sites à bloquer au format JSON
+├── manifest.json # Manifest v3 de l’extension
+├── script.js # Content script principal
+├── blocker.html # Template HTML du message motivant
+└── README.md
+

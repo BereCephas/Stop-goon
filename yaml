@@ -1,0 +1,29 @@
+
+---
+
+## Développement
+
+- `script.js` contient la logique principale de vérification d’URL et blocage.
+- `urls.json` liste les domaines et chemins spécifiques à bloquer.
+- `blocker.html` et `blocker.css` définissent l’affichage du message motivant.
+- Utilisez l’API `chrome.tabs` pour récupérer l’URL actuelle.
+- Utilisez `chrome.storage.local` pour stocker les préférences ou données utilisateur si besoin.
+
+---
+
+## Contribution
+
+Les contributions sont les bienvenues. Merci d’ouvrir une issue pour toute suggestion ou bug.
+
+---
+
+## Licence
+
+MIT License
+
+---
+
+## Remerciements
+
+Merci d’utiliser Stop-Goon pour une meilleure maîtrise de votre navigation.
+

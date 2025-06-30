@@ -3,12 +3,19 @@
   "description": "Extension pour bloquer les sites pour adultes automatiquement.",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["scripting", "activeTab"],
+  "permissions": ["scripting", "activeTab","storage","declarativeNetRequest"],
+  "declarative_net_request" : {
+    "rule_resources" : [{
+      "id": "urls",
+      "enabled": true,
+      "path": "urls.json"
+    }]
+  },
   "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["script.js"]
+      "js": ["background.js"]
 
     }
   ],
