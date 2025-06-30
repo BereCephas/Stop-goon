@@ -62,21 +62,40 @@ async function loadSites() {
 
 let blockedSites=[];
 
-     // Fonction pour créer une carte de site
-        function createSiteCard(site) {
-            const card = document.createElement('div');
-            const site_id= `${site.id}`
-            card.className = 'site-card';
-            card.innerHTML = `
-                <div class="site-info">
-                    <div class="site-name">${site.domain}</div>
-                </div>
-                <button class="delete-btn" id="${site.id}">
-                    🗑️ Supprimer
-                </button>
-            `;
-            return card;
-        }
+function createSiteCard(site) {
+    const card = document.createElement('div');
+    const site_id = `${site.id}`;
+    card.className = 'site-card';
+    card.innerHTML = `
+        <div class="site-info">
+            <div class="site-name">${site.domain}</div>
+        </div>
+        <button class="delete-btn" data-site-id="${site_id}">
+            🗑️ Supprimer
+        </button>
+    `;
+    
+    // Ajouter l'event listener après la création
+    const deleteBtn = card.querySelector('.delete-btn');
+    deleteBtn.addEventListener('click', function(event) {
+        const siteId = event.target.getAttribute('data-site-id');
+        handleDeleteSite(siteId);
+    });
+    
+    return card;
+}
+
+// Fonction appelée lors du clic sur supprimer
+function handleDeleteSite(siteId) {
+    console.log('Suppression du site avec ID:', siteId);
+    
+    // Confirmation avant suppression
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce site ?')) {
+        // Votre logique de suppression ici
+        removeSite(siteId);
+        renderBlockedSites();
+    }
+}
 
         // Fonction pour afficher les sites bloqués
         function renderBlockedSites() {
@@ -112,6 +131,7 @@ let blockedSites=[];
             } else {
                 blockedSitesContainer.classList.remove('show');
                 showBlockedBtn.innerHTML = '📋 Afficher les sites bloqués';
+                blockedSitesGrid.innerHTML = ``;
             }
         }
 
