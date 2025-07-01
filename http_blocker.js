@@ -470,7 +470,7 @@ const resetUserRules = async () => {
 // ========== EXPORT ==========
 
 // Fonctions principales pour l'extension
-window.HttpBlocker = {
+let HttpBlocker = {
     // Initialisation
     initialize: initializeExtension,
     

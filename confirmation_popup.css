@@ -1,0 +1,124 @@
+#stop-goon-confirmation-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Ensure it's above other page content */
+    font-family: Arial, sans-serif;
+}
+
+#stop-goon-confirmation-popup {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    animation: fadeInScale 0.3s ease-out;
+    max-height: 80vh; /* Limit height for scrollability */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#stop-goon-confirmation-popup h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#stop-goon-confirmation-popup p {
+    margin-bottom: 25px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.question-item {
+    margin-bottom: 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.question-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.question-item label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #444;
+    font-size: 16px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+    transform: scale(1.2); /* Make radio buttons slightly larger */
+}
+
+.radio-group label {
+    font-weight: normal; /* Override bold for general labels */
+    cursor: pointer;
+    color: #666;
+}
+
+.popup-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#stop-goon-confirm-btn,
+#stop-goon-cancel-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#stop-goon-confirm-btn {
+    background-color: #dc3545; /* Red for deletion */
+    color: white;
+}
+
+#stop-goon-confirm-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+#stop-goon-cancel-btn {
+    background-color: #6c757d; /* Gray for cancel */
+    color: white;
+}
+
+#stop-goon-cancel-btn:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
